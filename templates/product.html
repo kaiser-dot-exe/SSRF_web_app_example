@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+<head><title>{{ product.name }}</title></head>
+<body>
+    <h1>{{ product.name }}</h1>
+    <form method="POST">
+        <label>Renk: <input type="text" name="color" /></label>
+        <button type="submit">Stok Kontrol Et</button>
+    </form>
+    {% if stock_result %}
+        <p><strong>Sonuç:</strong> {{ stock_result }}</p>
+    {% endif %}
+    <a href="/">Geri Dön</a>
+</body>
+</html>

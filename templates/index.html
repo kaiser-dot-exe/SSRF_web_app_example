@@ -1,0 +1,12 @@
+<!doctype html>
+<html>
+<head><title>Ürün Listesi</title></head>
+<body>
+    <h1>Ürünler</h1>
+    <ul>
+        {% for product in products %}
+        <li><a href="{{ url_for('product', product_id=product.id) }}">{{ product.name }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
