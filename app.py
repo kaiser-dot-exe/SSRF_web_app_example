@@ -4,19 +4,17 @@ import sqlite3
 
 app = Flask(__name__)
 
-# Veritabanı oluşturma
+
 def init_db():
     conn = sqlite3.connect('users.db')
     c = conn.cursor()
-    c.execute('''CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT)''')
-    c.execute('INSERT INTO users (username) VALUES (?)', ('alice',))
-    c.execute('INSERT INTO users (username) VALUES (?)', ('bob',))
+    c.execute('INSERT INTO users (username) VALUES (?)', ('Oğuz',))
+    c.execute('INSERT INTO users (username) VALUES (?)', ('Fatih',))
     conn.commit()
     conn.close()
 
 init_db()
 
-# Ürünler
 products = [
     {"id": 1, "name": "Ayakkabı"},
     {"id": 2, "name": "Çanta"},
@@ -43,7 +41,10 @@ def product(product_id):
         color = request.form.get("color")
         stock_server = request.headers.get("X-Stock-Server", "http://localhost:5000")
         try:
-            # SSRF zafiyeti burada
+
+#                                         SSRF ZAFİYETİ
+
+
             response = requests.get(f"{stock_server}/check_stock?product_id={product_id}&color={color}")
             stock_result = response.text
         except:
@@ -61,7 +62,6 @@ def check_stock():
     else:
         return f"{product_id} için {color} stokta YOK."
 
-# Gizli admin panel
 @app.route('/admin', methods=["GET", "POST"])
 def admin():
     conn = sqlite3.connect('users.db')
