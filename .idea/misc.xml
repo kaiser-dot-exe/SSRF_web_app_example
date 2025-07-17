@@ -3,5 +3,5 @@
   <component name="Black">
     <option name="sdkName" value="Python 3.13 (SSRF_web_app_example)" />
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.13 virtualenv at C:\Users\Muhammet\Documents\GitHub\SSRF_web_app_example\.venv" project-jdk-type="Python SDK" />
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.13 (SSRF_web_app_example)" project-jdk-type="Python SDK" />
 </project>
